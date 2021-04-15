@@ -2,6 +2,16 @@
 Minimalist CLI for getting operating system information.
 
 ## Usage
+```sh
+./os-info-cli [OPTIONS]
+
+    [OPTIONS]:
+        -h, --help                  Usage message
+        -a, --all                   Show all info (CPU, Network and memory)
+        -f, --filter=filter         (cpu | net | mem)
+```
+
+
 
 ## Internals
 I'm building this mini project because I started learning Go. I decided to write a simple CLI for getting the most common information that I look for in my operating system. 
