@@ -1,4 +1,6 @@
 # os-info-cli
+
+![Build](https://github.com/JusethAg/os-info-cli/workflows/build/badge.svg)
 Minimalist CLI for getting operating system information.
 
 ## Usage
