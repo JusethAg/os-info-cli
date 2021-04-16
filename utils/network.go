@@ -7,16 +7,16 @@ import (
 	"net/http"
 )
 
-type networkInfo struct {
+type NetworkInfo struct {
 	privateIp string
 	publicIp  string
 }
 
-func GetNetworkInfo() networkInfo {
+func GetNetworkInfo() NetworkInfo {
 	privateIp := getPrivateIP()
 	publicIp := getPublicIp()
 
-	return networkInfo{privateIp, publicIp}
+	return NetworkInfo{privateIp, publicIp}
 }
 
 func getPrivateIP() string {
