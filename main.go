@@ -23,18 +23,25 @@ func (filters *filter) Set(value string) error {
 		return errors.New("filters flag already set")
 	}
 
-	for _, filter := range strings.Split(value, ",") {
-		*filters = append(*filters, filter)
+	for _, f := range strings.Split(value, ",") {
+		*filters = append(*filters, f)
 	}
 
 	return nil
 }
 
-func main() {
-	getFlags()
+type flags struct {
+	all     bool
+	filters filter
 }
 
-func getFlags() {
+func main() {
+	fl := GetFlagsFromCommandLine()
+	fmt.Println(fl.all)
+	fmt.Println(fl.filters)
+}
+
+func GetFlagsFromCommandLine() flags {
 	var all bool
 	var filters filter
 
@@ -45,6 +52,5 @@ func getFlags() {
 
 	flag.Parse()
 
-	fmt.Println("All flag value", all)
-	fmt.Println("Filter flag value", filters)
+	return flags{all, filters}
 }
