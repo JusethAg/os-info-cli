@@ -3,6 +3,7 @@ name: os-info-cli
 on: [push]
 jobs:
   build:
+    name: Build
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
