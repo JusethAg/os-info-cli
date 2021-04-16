@@ -29,6 +29,6 @@ In case you want to see the goal/scope of this project, I suggest reviewing the 
 - [ ] Create the basic structure of the project (Considering best practices for structuring a Go project and adding dependencies for adding unit tests).
 - [ ] Create a workflow with GitHub actions
 - [x] Accept flags for getting information of the OS (help, all, filter by cpu, network, or memory).
-- [ ] Get network info (public and private IPs).
+- [x] Get network info (public and private IPs).
 - [ ] Get CPU info (usage % by user, by system, IDLE, top 5 processes, temperature).
 - [ ] Get memory info (% wired, active, compressed, and free, top 5 processes).

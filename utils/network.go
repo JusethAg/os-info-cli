@@ -7,19 +7,12 @@ import (
 	"net/http"
 )
 
-type NetworkInfo struct {
-	privateIp string
-	publicIp  string
+type networkInfo struct {
+	PrivateIp string
+	PublicIp  string
 }
 
-func GetNetworkInfo() NetworkInfo {
-	privateIp := getPrivateIP()
-	publicIp := getPublicIp()
-
-	return NetworkInfo{privateIp, publicIp}
-}
-
-func getPrivateIP() string {
+var getPrivateIP = func() string {
 	conn, err := net.Dial("tcp", "1.1.1.1:80")
 
 	if err != nil {
@@ -42,7 +35,7 @@ func getPrivateIP() string {
 	return ip
 }
 
-func getPublicIp() string {
+var getPublicIp = func() string {
 	resp, err := http.Get("http://checkip.amazonaws.com")
 
 	if err != nil {
@@ -60,4 +53,11 @@ func getPublicIp() string {
 	ip := string(bodyResp)
 
 	return ip
+}
+
+func GetNetworkInfo() networkInfo {
+	privateIp := getPrivateIP()
+	publicIp := getPublicIp()
+
+	return networkInfo{privateIp, publicIp}
 }

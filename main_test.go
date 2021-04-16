@@ -39,7 +39,7 @@ func TestGetFlags(t *testing.T) {
 
 			got := GetFlagsFromCommandLine()
 
-			if !reflect.DeepEqual(tt.want, got) {
+			if !reflect.DeepEqual(got, tt.want) {
 				t.Errorf("TestGetFlags() = %v, want %v", got, tt.want)
 			}
 		})

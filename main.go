@@ -40,7 +40,10 @@ type flags struct {
 func main() {
 	GetFlagsFromCommandLine()
 
-	utils.GetNetworkInfo()
+	netInfo := utils.GetNetworkInfo()
+
+	fmt.Printf("Private IP: %v\n", netInfo.PrivateIp)
+	fmt.Printf("Public IP: %v\n", netInfo.PublicIp)
 }
 
 func GetFlagsFromCommandLine() flags {
