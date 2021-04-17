@@ -13,25 +13,25 @@ func TestGetNetworkInfo(t *testing.T) {
 		name             string
 		mockGetPrivateIP func() string
 		mockGetPublicIP  func() string
-		want             networkInfo
+		want             NetworkInfo
 	}{
 		{
 			"Get private and public IP addresses",
 			func() string { return mockPrivateIp },
 			func() string { return mockpublicIp },
-			networkInfo{mockPrivateIp, mockPrivateIp},
+			NetworkInfo{mockPrivateIp, mockPrivateIp},
 		},
 		{
 			"Get private IP address",
 			func() string { return mockPrivateIp },
 			func() string { return "" },
-			networkInfo{mockPrivateIp, ""},
+			NetworkInfo{mockPrivateIp, ""},
 		},
 		{
 			"Get public IP address",
 			func() string { return "" },
 			func() string { return mockpublicIp },
-			networkInfo{"", mockpublicIp},
+			NetworkInfo{"", mockpublicIp},
 		},
 	}
 	for _, tt := range tests {

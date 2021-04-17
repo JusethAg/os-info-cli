@@ -7,7 +7,7 @@ import (
 	"net/http"
 )
 
-type networkInfo struct {
+type NetworkInfo struct {
 	PrivateIp string
 	PublicIp  string
 }
@@ -55,9 +55,9 @@ var getPublicIp = func() string {
 	return ip
 }
 
-func GetNetworkInfo() networkInfo {
+func GetNetworkInfo() NetworkInfo {
 	privateIp := getPrivateIP()
 	publicIp := getPublicIp()
 
-	return networkInfo{privateIp, publicIp}
+	return NetworkInfo{privateIp, publicIp}
 }
