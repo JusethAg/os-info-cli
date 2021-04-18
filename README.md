@@ -34,4 +34,4 @@ In case you want to see the goal/scope of this project, I suggest reviewing the 
 - [X] Accept flags for getting information of the OS (help, all, filter by cpu, network, or memory).
 - [X] Get network info (public and private IPs).
 - [ ] Get CPU info (usage % by user, by system, IDLE, top 5 processes, temperature).
-- [ ] Get memory info (% wired, active, compressed, and free, top 5 processes).
+- [ ] Get memory info (Mem GB wired, active, compressed, and free, top 5 processes).
