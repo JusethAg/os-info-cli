@@ -39,6 +39,7 @@ var getPublicIp = func() string {
 	resp, err := http.Get("http://checkip.amazonaws.com")
 
 	if err != nil {
+		log.Fatal(err)
 		return ""
 	}
 
@@ -47,6 +48,7 @@ var getPublicIp = func() string {
 	bodyResp, err := io.ReadAll(resp.Body)
 
 	if err != nil {
+		log.Fatal(err)
 		return ""
 	}
 

@@ -42,8 +42,11 @@ func main() {
 
 	netInfo := utils.GetNetworkInfo()
 
+	values := utils.GetMemoryInfo()
+
 	fmt.Printf("Private IP: %v\n", netInfo.PrivateIp)
 	fmt.Printf("Public IP: %v\n", netInfo.PublicIp)
+	fmt.Printf("Memory values: %v\n", values)
 }
 
 func GetFlagsFromCommandLine() flags {
