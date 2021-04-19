@@ -5,37 +5,20 @@ import (
 	"testing"
 )
 
-var mockPrivateIp = "127.0.0.1"
-var mockpublicIp = "8.8.8.8"
-
+// TODO: Update tests refactoring implementation with interfaces and structs
 func TestGetNetworkInfo(t *testing.T) {
 	tests := []struct {
-		name             string
-		mockGetPrivateIP func() string
-		mockGetPublicIP  func() string
-		want             NetworkInfo
+		name string
+		want NetworkInfo
 	}{
 		{
 			"Get private and public IP addresses",
-			func() string { return mockPrivateIp },
-			func() string { return mockpublicIp },
-			NetworkInfo{mockPrivateIp, mockPrivateIp},
-		},
-		{
-			"Get private IP address",
-			func() string { return mockPrivateIp },
-			func() string { return "" },
-			NetworkInfo{mockPrivateIp, ""},
-		},
-		{
-			"Get public IP address",
-			func() string { return "" },
-			func() string { return mockpublicIp },
-			NetworkInfo{"", mockpublicIp},
+			NetworkInfo{getPrivateIP(), getPublicIp()},
 		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
+
 			got := GetNetworkInfo()
 
 			if !reflect.DeepEqual(got, tt.want) {

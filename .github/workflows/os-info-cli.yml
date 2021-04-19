@@ -16,7 +16,7 @@ jobs:
 
       - name: Run unit tests
         working-directory: ./
-        run: go test -v
+        run: go test -v ./...
 
       - name: Build
         working-directory: ./
